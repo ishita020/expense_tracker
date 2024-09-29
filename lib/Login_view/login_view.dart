@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../login_controller.dart/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,7 +16,6 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Logo or App Name
                   Text(
                     'Expense Tracker',
                     style: TextStyle(
