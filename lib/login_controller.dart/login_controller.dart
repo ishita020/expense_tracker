@@ -1,4 +1,4 @@
-import 'dart:convert'; // For handling JSON
+import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,30 +14,25 @@ class LoginController extends GetxController {
   var refreshToken = ''.obs;
   var password = ''.obs;
   var isLoading =
-      false.obs; // To show a loading indicator while making API requests
+      false.obs; 
 
-  // Update this URL with your actual API endpoint
   final String loginApiUrl = 'https://dummyjson.com/auth/login';
 
-  // API-based login function
   Future<void> login() async {
-    isLoading.value = true; // Start loading
+    isLoading.value = true; 
 
-    // Create the request body
     var requestBody = {
       "username": username.value,
       "password": password.value,
     };
     print(requestBody);
     try {
-      // Send POST request to the login API
       var response = await http.post(
         Uri.parse(loginApiUrl),
         headers: {
           'Content-Type': 'application/json',
         },
         body: jsonEncode(requestBody),
-        // Convert body to JSON
       );
       print(response.statusCode);
       if (response.statusCode == 200) {
@@ -64,11 +59,10 @@ class LoginController extends GetxController {
     } catch (e) {
       Get.snackbar('Error', 'An error occurred during login');
     } finally {
-      isLoading.value = false; // Stop loading
+      isLoading.value = false; 
     }
   }
 
-  // Update the username and password on input changes
   void updateUsername(String value) {
     username.value = value;
   }
